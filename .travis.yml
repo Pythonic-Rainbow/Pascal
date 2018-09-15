@@ -1,13 +1,13 @@
-sudo: true
-
 matrix:
   include:
     - os: linux
       dist: xenial
       sudo: required
 
-before_install:
-  - sudo apt-get install fp-compiler-3.0.0
+addons:
+  apt:
+    packages:
+    - fp-compiler-3.0.0
 
 script:
   - fpc ./s4/hw1/hw1.pas
