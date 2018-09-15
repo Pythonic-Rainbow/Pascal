@@ -3,11 +3,13 @@ sudo: true
 matrix:
   include:
     - os: linux
-      dist: xenial
+      dist: bionic
       sudo: required
 
 install:
-  - sudo apt-get install fp-compiler-3.0.0
+  - sudo add-apt-repository ppa:ubuntu/fpc
+  - sudo apt-get update
+  - sudo apt-get install fp-compiler-3.0.4
 
 
 script:
