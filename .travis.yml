@@ -3,7 +3,7 @@ sudo: true
 matrix:
   include:
     - os: linux
-      dist: bionic
+      dist: xenial
       sudo: required
 
 before_install:
