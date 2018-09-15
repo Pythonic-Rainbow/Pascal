@@ -7,7 +7,7 @@ matrix:
       sudo: required
 
 before_install:
-  - sudo apt-get install fp-compiler-3.0.4 -y
+  - sudo apt-get install fp-compiler-3.0.0
 
 script:
   - fpc ./s4/hw1/hw1.pas
