@@ -7,8 +7,6 @@ matrix:
       sudo: required
 
 before_install:
-  - sudo add-apt-repository ppa:ubuntu/fpc -y
-  - sudo apt-get update -q
   - sudo apt-get install fp-compiler-3.0.4 -y
 
 script:
