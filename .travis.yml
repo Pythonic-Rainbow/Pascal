@@ -6,12 +6,10 @@ matrix:
       dist: bionic
       sudo: required
 
-addons:
-  apt:
-    sources:
-      - sourceline: 'ppa:ubuntu-toolchain-r/fpc'
-    packages:
-    - fp-compiler-3.0.4
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/fpc -y
+  - sudo apt-get update -q
+  - sudo apt-get install fp-compiler-3.0.4 -y
 
 script:
   - fpc ./s4/hw1/hw1.pas
