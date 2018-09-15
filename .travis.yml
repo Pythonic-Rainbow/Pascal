@@ -7,9 +7,10 @@ matrix:
       sudo: required
 
 before_install:
-  - sudo add-apt-repository ppa:ubuntu/fpc
-  - sudo apt-get update
-  - sudo apt-get install fp-compiler-3.0.4
+  - sudo apt-get install alien
+  - wget -O "fpc.rpm" "https://downloads.sourceforge.net/project/freepascal/Linux/3.0.4/fpc-3.0.4-1.x86_64.rpm?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Ffreepascal%2Ffiles%2FLinux%2F3.0.4%2Ffpc-3.0.4-1.x86_64.rpm%2Fdownload&ts=1537008154"
+  - sudo alien fpc.rpm
+  - sudo dpkg -i fpc.deb
 
 
 script:
