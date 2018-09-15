@@ -43,7 +43,7 @@ begin
     if sex = ID[8] then
         writeln(name + ' has entered a valid HKID no.')
     else
-        writeln(name + ' has entered an invalid HKID no.')
+        writeln(name + ' has entered an invalid HKID no.');
     write('Continue (Y/N) ? ');
     readln(sex);
     if sex = 'Y' then
