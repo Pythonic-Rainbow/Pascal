@@ -2,7 +2,7 @@ Program s4_hw2;
 var
     name: string;
     sex: char;
-    ID: char[1..8];
+    ID: array[1..8] of char;
     i,d: integer;
     c: boolean;
 begin
