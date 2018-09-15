@@ -47,6 +47,6 @@ begin
     write('Continue (Y/N) ? ');
     readln(sex);
     if sex = 'Y' then
-        c = true;
+        c := true;
     until not c;  
 end.
