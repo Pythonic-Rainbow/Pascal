@@ -7,7 +7,7 @@ matrix:
       sudo: required
 
 install:
-  - sudo apt-get install fp-compiler-3.0.4
+  - sudo apt-get install fp-compiler-3.0.0
 
 
 script:
