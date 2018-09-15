@@ -34,16 +34,16 @@ begin
     //Calculate check digit
     i := d mod 11;
     if i = 0 then
-        sex := '0';
+        sex := '0'
     else if i = 1 then
-        sex := 'A';
+        sex := 'A'
     else
         sex := chr(i + 37);
     //Display result
     if sex = ID[8] then
-        writeln(name + ' has entered a valid HKID no.');
+        writeln(name + ' has entered a valid HKID no.')
     else
-        writeln(name + ' has entered an invalid HKID no.');
+        writeln(name + ' has entered an invalid HKID no.')
     write('Continue (Y/N) ? ');
     readln(sex);
     if sex = 'Y' then
