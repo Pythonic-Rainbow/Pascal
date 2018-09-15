@@ -1,7 +1,13 @@
 sudo: true
 
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      sudo: required
+
 install:
-  - sudo apt-get install fp-compiler
+  - sudo apt-get install fp-compiler-3.0.4
 
 
 script:
