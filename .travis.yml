@@ -1,0 +1,6 @@
+sudo: true
+
+install: sudo apt-get install fpc
+
+script:
+  - fpc hello.pas
