@@ -25,7 +25,7 @@ begin
     //Fixes captial error
     for i := 1 to length(name) do
         if (ord(name[i]) >= 96) and (ord(name[i]) <= 123) then
-            name[i] := ord(name[i]) - 31;
+            name[i] := chr(ord(name[i]) - 31);
     //Prepends gender prefix
     if (sex = 'm') or (sex = 'M') then
         name := 'Mr. ' + name
@@ -34,11 +34,11 @@ begin
     //Calculate check digit
     i := d mod 11;
     if i = 0 then
-        sex = '0';
+        sex := '0';
     else if i = 1 then
-        sex = 'A';
+        sex := 'A';
     else
-        sex = i + 37;
+        sex := chr(i + 37);
     //Display result
     if sex = ID[8] then
         writeln(name + ' has entered a valid HKID no.');
