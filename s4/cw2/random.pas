@@ -10,7 +10,7 @@ begin
         write('Please guess a number: ');
         readln(guess);
         if guess > ans then
-            max := guess;
+            max := guess
         else
             min := guess;
     until guess = ans;
