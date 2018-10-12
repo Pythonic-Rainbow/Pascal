@@ -16,6 +16,7 @@ script:
   - fpc ./s4/hw3/hw3.pas
   - fpc ./s4/hw4/hw4.pas
   - fpc ./s4/cw2/task1.pas
+  - fpc ./s4/cw2/random.pas
 
 after_success:
   - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
