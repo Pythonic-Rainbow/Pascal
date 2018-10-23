@@ -1,6 +1,8 @@
 Program s4_hw3;
 var
     a,b,c,h,i:integer;
+
+function wrapper: integer;
 begin
     writeln('Enter first integer');
     readln(a);
@@ -18,4 +20,9 @@ begin
         i := i + 1;
     until (a * i mod b = 0) and (a * i mod c = 0);
     writeln('HCF: ' , h , ' LCM: ' , i*a);
+    wrapper := 0;
+end;
+
+begin
+    wrapper();
 end.
