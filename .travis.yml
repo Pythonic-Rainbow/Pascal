@@ -1,13 +1,13 @@
 matrix:
   include:
     - os: linux
-      dist: cosmic
+      dist: xenial
       sudo: required
 
 addons:
   apt:
     packages:
-    - fp-compiler-3.0.4
+    - fp-compiler-3.0.0
 
 script:
   - fpc ./s4/hw1/hw1.pas
