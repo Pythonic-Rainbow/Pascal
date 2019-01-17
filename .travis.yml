@@ -20,6 +20,7 @@ script:
   - fpc ./s4/hw4/palindrome.pas
   - fpc ./s4/cw2/p87q6.pas
   - fpc ./s4/cw3/p148q2.pas
+  - fpv ./s4/cw5/cw5.pas
 
 after_success:
   - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
