@@ -4,7 +4,7 @@ var
     i,j: integer;
     rep,round: boolean;
 
-procedure getUserInput(xo : boolean;)
+procedure getUserInput(xo : boolean);
 var a,b:integer;
     bo : boolean;
     turn : string;
@@ -30,7 +30,7 @@ begin
     end
 end;
 
-procedure printb()
+procedure printb();
 begin
     for i := 1 to 3 do begin
         for j := 1 to 3 do
@@ -40,7 +40,7 @@ begin
         end;
 end;
 
-function check() : boolean
+function check() : boolean;
 begin
     check := True;
     while check do begin
