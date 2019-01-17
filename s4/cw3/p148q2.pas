@@ -1,6 +1,6 @@
 Program s4_p148q2;
 var
-    switch.num1,num2: integer;
+    switch,num1,num2: integer;
 begin
     writeln('1. Addition');
     writeln('2. Subtraction');
