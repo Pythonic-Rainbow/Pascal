@@ -1,4 +1,4 @@
-Prorgram cw5;
+Program cw5;
 var
     pos: array[1..3, 1..3] of char;
     i,j: integer;
