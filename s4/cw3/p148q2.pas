@@ -17,4 +17,5 @@ begin
         4: writeln(num1, ' / ', num2, ' = ', num1/num2);
     else
         writeln('Invalid choice! Byte!');
+    end;
 end.
