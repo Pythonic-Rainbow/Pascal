@@ -1,7 +1,11 @@
-os: windows
+matrix:
+  include:
+    - os: linux
+      dist: xenial
+      sudo: required
 
 addons:
-  chocolatey:
+  apt:
     packages:
     - fp-compiler-3.0.0
 
