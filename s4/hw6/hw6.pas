@@ -8,7 +8,7 @@ var
     i,o,u: integer;
 begin
     input := 'Y';
-    Assign(f, '.dat')
+    Assign(f, '.dat');
     writeln('Reading database...');
     i := 0;
     reset(f);
