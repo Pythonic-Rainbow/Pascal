@@ -1,6 +1,6 @@
 Program hw6;
 var
-    var fname,lname:array [1..32767] of string;
+    fname,lname:array [1..32767] of string;
     sex:array [1..32767] of char;
     phone:array [1..32767] of string[8];
     input: string;
