@@ -27,7 +27,7 @@ begin
     writeln('1. Input');
     writeln('2. List out');
     readln(input);
-    if input = 1 then begin
+    if input = '1' then begin
         o := i;
         repeat
             i := i + 1;
@@ -36,7 +36,7 @@ begin
             write('Last name: ');
             readln(lname[i]);
             write('Sex: ');
-            readln(sex[i])
+            readln(sex[i]);
             write('Phone: ');
             readln(phone[i]);
             write('Continue? [Y/N]');
