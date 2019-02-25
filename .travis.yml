@@ -23,6 +23,7 @@ script:
   - fpc ./s4/cw5/cw5.pas
   - fpc ./s4/cw6/cw6_write.pas
   - fpc ./s4/cw6/cw6_read.pas
+  - fpc ./s4/hw6/hw6.pas
 
 after_success:
   - wget https://raw.githubusercontent.com/k3rn31p4nic/travis-ci-discord-webhook/master/send.sh
