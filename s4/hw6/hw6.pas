@@ -41,7 +41,7 @@ begin
             readln(phone[i]);
             write('Continue? [Y/N]');
             readln(input);
-        until (c <> 'Y') and (c <> 'y');
+        until (input <> 'Y') and (input <> 'y');
         writeln('There are ',i,' entries in the buffer now. (Original: ',o,')');
         writeln('Writing buffer to database...');
         rewrite(f);
@@ -59,7 +59,7 @@ begin
             writeln('First Name: ',fname[i]);
             writeln('Last Name: ',lname[i]);
             writeln('Sex: ',sex[i]);
-            writeln('Phone: 'phone[i]);
+            writeln('Phone: ',phone[i]);
             writeln;
         end;
     end;
