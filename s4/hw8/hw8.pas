@@ -66,7 +66,10 @@ begin
 end;
 
 //TODO
-procedure edit_book();
+procedure search_book();
+begin
+    write('Enter fir')
+end;
 
 procedure write_book:
 var j : integer;
