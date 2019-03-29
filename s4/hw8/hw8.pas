@@ -61,14 +61,23 @@ begin
     for j := 1 to i do
         if database[i].first_name = first then begin
             get_index = j;
-            j := 32767;
+            j := i;
         end;
 end;
 
-//TODO
 procedure search_book();
+var first:String;
+    j:integer;
+    this:Phone;
 begin
-    write('Enter fir')
+    write('Enter first name: ');
+    readln(first);
+    j := get_index(first);
+    writeln('Entry ',j);
+    writeln('First name: ',database[j].first_name);
+    writeln('Last name: ',database[j].last_name);
+    writeln('Male? ',database[j].isMale);
+    writeln('Phone number: ',database[j].no);
 end;
 
 procedure write_book:
@@ -115,6 +124,7 @@ begin
         readln(func);
         case func of
             1: add_book;
+            4: search_book;
         else
             writeln('Please re-enter!');
     until (char = 6);
