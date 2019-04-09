@@ -1,131 +1,76 @@
-Program s4_hw7;
-uses sysutils;
-
-type
-    Phone = record
-            first_name: string;
-            last_name: string;
-            isMale: boolean;
-            no: string;
-            end;
+﻿Program hw8;
 var
-    database: array[1..32767] of Phone;
-    datafile: file of Phone;
-    func: char;
-    i: integer;
+    mainloop:char;
+    fname, lname:array[1..32767] of string;
+    phone: array[1..32767] of string[8];
+    dat: TextFile;
+    pointer: integer;
 
-procedure read_book;
+procedure readFile();
 begin
-    writeln('Opening file...');
-    
-    reset(datafile);
-    writeln('File opened, reading database...');
-    while not eof(datafile) do begin
-        i := i + 1;
-        read(datafile, database[i]);
+    assign(dat, 'phone.dat');
+    reset(dat);
+    pointer := 1;
+    while not eof(dat) do begin
+        readln(dat, fname[pointer]);
+        readln(dat, lname[pointer]);
+        readln(dat, phone[pointer]);
     end;
-    writeln(i, ' entries read.');
-    CloseFile(datafile);
+    writeln('Read ',pointer-1, 'entries.');
+    close(dat);
 end;
 
-function get_book() : Phone;
-var add: Phone;
-    sex: char;
+function getIndex(first:string) : integer;
+var i : integer;
 begin
-    repeat
-    writeln('Add a phone number??? Fine. (why tho)');
-    write('Enter first name: ');
-    readln(add.first_name);
-    //TODO: if exist then edit
-    write('Enter last name: ');
-    readln(add.last_name);
-    write('Male???(M) ');
-    readln(sex);
-    if sex = 'M' then
-        add.isMale = true
-    else add.isMale = false;
-    write('Last but not least, number: ');
-    readln(no);
-    writeln;
-    write('Are you sure you want to write the following to the database?(Y)');
-    write('FirstName: ',add.first_name, ' LastName: ',add.last_name, ' isMale: ', add.isMale, ' Number: ', add.no, ' ');
-    readln(sex);
-    until sex = 'Y';
-    get_book := add; // Prevent memory violation
+    getIndex := 0;
+    for i := 1 to pointer do
+        if fname[i] = first then getIndex := i;
 end;
 
-function get_index(first: string) : integer;
-var j : integer;
+procedure append(first:string; last:string; fone:string);
 begin
-    get_index := 0;
-    for j := 1 to i do
-        if database[i].first_name = first then begin
-            get_index = j;
-            j := i;
-        end;
+    rewrite(dat);
+    pointer := pointer + 1;
+    fname[pointer] := first;
+    lname[pointer] := last;
+    phone[pointer] := fone;
 end;
 
-procedure search_book();
-var first:String;
-    j:integer;
-    this:Phone;
+
+procedure addData();
+var first,last:string;
+    fone:string[8];
+    index:integer;
 begin
-    write('Enter first name: ');
+    write('New first name: ');
     readln(first);
-    j := get_index(first);
-    writeln('Entry ',j);
-    writeln('First name: ',database[j].first_name);
-    writeln('Last name: ',database[j].last_name);
-    writeln('Male? ',database[j].isMale);
-    writeln('Phone number: ',database[j].no);
+    index := getIndex(first);
+    if index = 0 then begin
+        write('New last name: ');
+        readln(last);
+        write('New phone number: ');
+        readln(fone);
+        append(first, last, fone);
+    end else writeln('Duplicated First name at ', index);
 end;
 
-procedure write_book:
-var j : integer;
+procedure menu();
+var menuinput:char;
 begin
-    AssignFile(datafile, 'phone.book');
-    writeln('Writing database... ');
-    for j := 1 to i do begin
-        write(datafile, database[i]);
-    end;
-    writeln('Written ',j,' entries');
-    CloseFile(datafile);
-    writeln('Calling read_book() to refresh database');
-    read_book();
+    writeln('Menu');
+    writeln('---------');
+    writeln('1.Add data');
+    readln(menuinput);
+    case menuinput of
+        '1': addData();
+    else writeln('Unknown input!(1-6)');
 end;
 
-procedure add_book;
 begin
-    if i < 32767 then begin
-        database[i+1] := get_book();
-        write_book();
-    end else writeln('ERROR! Database reached maximum size!');
-end;
-
-// Main
-begin
-    if not FileExists('phone.book') then begin
-        writeln('New user duh, no phone.book duh, creating new file duh ¯\_(ツ)_/¯');
-        FileCreate('phone.book');
-    end;
-    AssignFile(datafile, 'phone.book');
-    i := 0;
-    read_book();
     repeat
-        writeln('Menu');
-        writeln('------------');
-        writeln('1. Add');
-        writeln('2. Edit');
-        writeln('3. Delete');
-        writeln('4. Search');
-        writeln('5. View');
-        writeln('6. Exit');
-        write('Input: ');
-        readln(func);
-        case func of
-            1: add_book;
-            4: search_book;
-        else
-            writeln('Please re-enter!');
-    until (char = 6);
+        readFile();
+        menu();
+        writeln('Do you still want to continue? (y/n)');
+    until mainloop = 'n';
 end.
